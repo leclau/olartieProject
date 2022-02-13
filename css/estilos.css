@@ -1,4 +1,6 @@
-*{
+*,
+*::before,
+*::after{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
@@ -426,13 +428,52 @@ h4{
         width: 300px;
     }
 
+    .imageGallery{
+        grid-template-areas:    "img-1 img-1 img-1 img-1"
+                                "img-2 img-2 img-2 img-2"
+                                "img-3 img-3 img-3 img-3"
+                                "img-4 img-4 img-4 img-4"
+                                "img-5 img-5 img-5 img-5"
+                                "img-6 img-6 img-6 img-6"
+                                "img-7 img-7 img-7 img-7"
+                                "img-8 img-8 img-8 img-8";
+    }
+
+    .imageGallery a,
+    .img-1,
+    .img-6{
+        min-height: 30rem;
+        height: 30rem;
+    }
+
+}
+
+@media only screen and (max-width: 900px){
+
+    .imageGallery{
+        grid-template-areas:    "img-1 img-1 img-2 img-2"
+                                "img-1 img-1 img-3 img-3"
+                                "img-4 img-4 img-5 img-5"
+                                "img-6 img-7 img-7 img-7"
+                                "img-8 img-8 img-8 img-8";
+    }
+
+    .imageGallery a{
+        height: 20rem;
+    }
+
+    .img-1{
+        min-height: 41.5rem;
+    }
+
+    .img-6{
+        min-height: 20rem;
+    }
 }
 
 /* MAIN SECTION-ABOUT */
 
     #contentAbout{
-        /*height: 600px;*/
-        /*background-color: yellow;*/
         margin-top: 70px;
     }
 
@@ -459,4 +500,112 @@ h4{
     .tituloAbout p{
         font-size: 17px;
         font-style: normal;
+    }
+
+    /* MAIN SECTION-COLLECTION */
+
+    #bodyCollect{
+        width: 100%;
+        margin-top: 70px;
+        height: 1400px;
+        background-color: #eee;
+        display: flex;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 120rem;
+        margin: auto;
+        padding: 0 1.5rem;
+    }
+
+    .imageGallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 1.5rem;
+        grid-template-areas:    "img-1 img-2 img-3 img-3"
+                                "img-1 img-4 img-5 img-6"
+                                "img-7 img-7 img-8 img-6";
+    }
+
+    .imageGallery a{
+        width: 100%;
+        height: 25rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    .imageGallery a i{
+        color: rgba(255, 255, 255, .6);
+        font-size: 3rem;
+        position: relative;
+        z-index: 100;
+        opacity: 0;
+        transition: opacity .5s;
+    }
+
+    .imageGallery a::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+        opacity: 0;
+        transition: opacity .5s;
+    }
+
+    .imageGallery a:hover i,
+    .imageGallery a:hover::before{
+        opacity: 1;
+    }
+
+    .img-1{
+        grid-area: img-1;
+        min-height: 51.5rem;
+        background-image: url(../img/c1.jpg);
+    }
+
+    .img-2{
+        grid-area: img-2;
+        background-image: url(../img/c2.jpg);
+    }
+
+    .img-3{
+        grid-area: img-3;
+        background-image: url(../img/c3.jpg);
+    }
+
+    .img-4{
+        grid-area: img-4;
+        background-image: url(../img/c4.jpg);
+    }
+
+    .img-5{
+        grid-area: img-5;
+        background-image: url(../img/c5.jpg);
+    }
+
+    .img-6{
+        grid-area: img-6;
+        min-height: 51.5rem;
+        background-image: url(../img/c6.jpg);
+    }
+
+    .img-7{
+        grid-area: img-7;
+        background-image: url(../img/c7.jpg);
+    }
+
+    .img-8{
+        grid-area: img-8;
+        background-image: url(../img/c8.jpg);
     }
